@@ -1,5 +1,5 @@
 package resource
 
 func incrementalRevertValue() string {
-	return \"baseline\"
+	return \"temporary-change\"
 }
