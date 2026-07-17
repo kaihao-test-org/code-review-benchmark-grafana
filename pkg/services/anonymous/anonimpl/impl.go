@@ -91,6 +91,7 @@ func (a *AnonDeviceService) tagDeviceUI(ctx context.Context, httpReq *http.Reque
 	}
 
 	if err := a.anonStore.CreateOrUpdateDevice(ctx, device); err != nil {
+		a.localCache.Delete(key)
 		return err
 	}
 
