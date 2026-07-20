@@ -1,4 +1,3 @@
-# Delta test note (25)
+# Delta test note (25b)
 
-Unrelated change to exercise the incremental delta review.
-Does not touch device-limit code.
+Second unrelated change for the false-positive re-review test.
