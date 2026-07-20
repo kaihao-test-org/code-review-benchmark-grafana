@@ -1,3 +1,3 @@
-# Delta test note (26)
+# Delta test note (26b)
 
-Unrelated change to exercise follow-up review + summary.
+Final unrelated change; all prior findings dismissed as not-an-issue.
