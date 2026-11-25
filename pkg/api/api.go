@@ -413,6 +413,7 @@ func (hs *HTTPServer) registerRoutes() {
 			datasourceRoute.Get("/uid/:uid", authorize(ac.EvalPermission(datasources.ActionRead, uidScope)), routing.Wrap(hs.GetDataSourceByUID))
 			datasourceRoute.Get("/name/:name", authorize(ac.EvalPermission(datasources.ActionRead, nameScope)), routing.Wrap(hs.GetDataSourceByName))
 			datasourceRoute.Get("/id/:name", authorize(ac.EvalPermission(datasources.ActionIDRead, nameScope)), routing.Wrap(hs.GetDataSourceIdByName))
+			datasourceRoute.Get("/shared/:id", authorize(ac.EvalPermission(datasources.ActionRead)), routing.Wrap(hs.GetSharedDataSource))
 		})
 
 		pluginIDScope := pluginaccesscontrol.ScopeProvider.GetResourceScope(ac.Parameter(":pluginId"))
