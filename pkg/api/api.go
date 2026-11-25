@@ -552,6 +552,8 @@ func (hs *HTTPServer) registerRoutes() {
 
 		// short urls
 		apiRoute.Post("/short-urls", routing.Wrap(hs.createShortURL))
+
+		apiRoute.Get("/diagnostics/host-reachable", routing.Wrap(hs.CheckHostReachable))
 	}, reqSignedIn)
 
 	// admin api
