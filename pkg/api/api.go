@@ -552,6 +552,8 @@ func (hs *HTTPServer) registerRoutes() {
 
 		// short urls
 		apiRoute.Post("/short-urls", routing.Wrap(hs.createShortURL))
+
+		apiRoute.Get("/template-exports/download", routing.Wrap(hs.DownloadTemplateExport))
 	}, reqSignedIn)
 
 	// admin api
