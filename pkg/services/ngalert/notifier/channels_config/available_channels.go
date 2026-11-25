@@ -284,7 +284,6 @@ func GetAvailableNotifiers() []*NotifierPlugin {
 					Placeholder:  "https://oapi.dingtalk.com/robot/send?access_token=xxxxxxxxx",
 					PropertyName: "url",
 					Required:     true,
-					Secure:       true,
 				},
 				{
 					Label:        "Message Type",
