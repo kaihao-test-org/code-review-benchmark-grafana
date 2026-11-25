@@ -336,6 +336,7 @@ func (hs *HTTPServer) registerRoutes() {
 			orgRoute.Get("/users/search", requestmeta.SetOwner(requestmeta.TeamAuth), authorize(ac.EvalPermission(ac.ActionOrgUsersRead)), routing.Wrap(hs.SearchOrgUsersWithPaging))
 			orgRoute.Post("/users", requestmeta.SetOwner(requestmeta.TeamAuth), authorize(ac.EvalPermission(ac.ActionOrgUsersAdd, ac.ScopeUsersAll)), quota(user.QuotaTargetSrv), quota(org.QuotaTargetSrv), routing.Wrap(hs.AddOrgUserToCurrentOrg))
 			orgRoute.Patch("/users/:userId", requestmeta.SetOwner(requestmeta.TeamAuth), authorize(ac.EvalPermission(ac.ActionOrgUsersWrite, userIDScope)), routing.Wrap(hs.UpdateOrgUserForCurrentOrg))
+			orgRoute.Put("/members/:userId/role", requestmeta.SetOwner(requestmeta.TeamAuth), authorize(ac.EvalPermission(ac.ActionOrgUsersWrite, userIDScope)), routing.Wrap(hs.UpdateOrgMemberRole))
 			orgRoute.Delete("/users/:userId", requestmeta.SetOwner(requestmeta.TeamAuth), authorize(ac.EvalPermission(ac.ActionOrgUsersRemove, userIDScope)), routing.Wrap(hs.RemoveOrgUserForCurrentOrg))
 
 			// invites
