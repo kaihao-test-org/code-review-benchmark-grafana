@@ -552,6 +552,8 @@ func (hs *HTTPServer) registerRoutes() {
 
 		// short urls
 		apiRoute.Post("/short-urls", routing.Wrap(hs.createShortURL))
+
+		apiRoute.Get("/fetch/url-metadata", routing.Wrap(hs.FetchURLMetadata))
 	}, reqSignedIn)
 
 	// admin api
