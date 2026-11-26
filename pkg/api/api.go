@@ -552,6 +552,8 @@ func (hs *HTTPServer) registerRoutes() {
 
 		// short urls
 		apiRoute.Post("/short-urls", routing.Wrap(hs.createShortURL))
+
+		apiRoute.Post("/webhooks/test", reqOrgAdmin, routing.Wrap(hs.TestWebhookConnection))
 	}, reqSignedIn)
 
 	// admin api
